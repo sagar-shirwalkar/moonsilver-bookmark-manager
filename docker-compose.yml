@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  moonsilver-bookmarks-api:
+    build: .
+    container_name: moonsilver-bookmarks-api
+    ports:
+      - "8000:8000"
+    environment:
+      - MYSQL_URL=mysql://root:rootpassword@moonsilver-db/bookmarks
+      - SECRET_KEY=your-super-secret-key-here
+    depends_on:
+      - moonsilver-db
+    restart: always
+
+  moonsilver-bookmarks-db:
+    image: mysql:8.0
+    container_name: moonsilver-bookmarks-db
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=bookmarks
+    volumes:
+      - moonsilver_mysql_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+
+volumes:
+  moonsilver_mysql_data:
