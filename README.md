@@ -1,6 +1,6 @@
 # Moonsilver Bookmark Manager
 
-A modern and elegant bookmark manager that allows users to save, organize, and manage their bookmarks with ease. Built with FastAPI and MySQL.
+Work in progress. A modern and elegant bookmark manager that allows users to save, organize, and manage their bookmarks with ease. Built with FastAPI and MySQL.
 
 ## Features
 
